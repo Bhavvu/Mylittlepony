@@ -1,0 +1,185 @@
+<html>
+<head>
+    <title>Click for Scam</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ec9df8;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background: #e83b5b;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            background: #ff1493;
+        }
+
+        /* Birthday section */
+        #birthdayPage {
+            padding: 50px 20px;
+            animation: fadeIn 2s ease-in-out forwards;
+            background: linear-gradient(to bottom right, #ffb6c1, #ffe4e1);
+        }
+
+        h1 {
+            font-size: 45px;
+            color: #ff1493;
+            text-shadow: 2px 2px 5px #fff;
+        }
+
+        p {
+            font-size: 22px;
+            color: #8b008b;
+        }
+           .main-pic {
+            width: 200px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            margin: 20px 0;
+        }
+        .side-pic {
+    width: 120px; /* smaller than main pic */
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+}
+
+.extra-pic {
+    width: 100px; /* small pics below text */
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+        .floating-balloon {
+    position: fixed; /* stays relative to screen */
+    bottom: -150px;  /* start below screen */
+    width: 100px;
+    animation: floatUp 8s linear infinite;
+    z-index: 10; /* above background */
+}
+
+    @keyframes floatUp {
+    0%   { transform: translateY(0) scale(1); opacity: 1; }
+    80%  { opacity: 1; }
+    100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
+    }
+
+       @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- First Page -->
+<div id="welcomePage">
+    <h1>CLICK AT YOUR OWN RISK</h1>
+    <button onclick="showBirthday()">HERE</button>
+    <button onclick="showBirthday()">OR HERE</button>
+</div>
+
+<!-- Birthday Page -->
+<div id="birthdayPage" class="hidden">
+    <h1> Happy Birthday Diva!! 🎉</h1>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 20px;">
+        <img src="cat.jpeg" alt="Left Pic" class="side-pic">
+        <img src="mlp.jpeg" alt="Right Pic" class="side-pic">
+    </div>
+
+    </div>
+    <p>HAPPIEST BIRTHDAY TO YOUUUUUU,</p>
+    <p> AS YOU ARE ONE OF THE GIRLS DIVA KEEP SLAYING HARDDDD,</p>
+     <p>WE ARE ALL GLAD TO HAVE SUCH A STUNNING GIRLY W</p>
+     <div style="display: flex; justify-content: center; gap: 55px; margin-top: 15px;">
+        <img src="meme.jpg" alt="Extra Pic 1" class="extra-pic">
+        <img src="cat.jpg" alt="Extra Pic 2" class="extra-pic">
+        <img src="bweh.jpg" alt="Extra Pic 3" class="extra-pic">
+    </div>
+    <div>
+        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4960.png" class="floating-balloon" id="balloon1">
+        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4964.png" class="floating-balloon" id="balloon2">
+        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4963.png" class="floating-balloon" id="balloon3">
+    </div>
+    <audio id="birthdayMusic" src="happy-birthday-upbeat-birthday-music-361856.mp3" autoplay loop></audio>
+</div>
+
+<script>
+function showBirthday() {
+    document.getElementById("welcomePage").style.display = "none";
+    document.getElementById("birthdayPage").classList.remove("hidden");
+    document.getElementById("birthdayMusic").play();
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+function showBirthday() {
+    document.getElementById("welcomePage").style.display = "none";
+    document.getElementById("birthdayPage").classList.remove("hidden");
+    document.getElementById("birthdayMusic").play();
+
+    // Confetti blast when page loads
+    launchConfetti();
+    startBalloonAnimation();
+}
+
+function launchConfetti() {
+    var duration = 5 * 1000; // 5 seconds
+    var end = Date.now() + duration;
+
+    (function frame() {
+        confetti({
+            particleCount: 7,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0 }
+        });
+        confetti({
+            particleCount: 7,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+            requestAnimationFrame(frame);
+        }
+    }());
+}
+function startBalloonAnimation() {
+    const balloons = ["balloon1", "balloon2", "balloon3"];
+    balloons.forEach((id) => {
+        let balloon = document.getElementById(id);
+        function moveBalloon() {
+            let randomLeft = Math.random() * 80; // horizontal position %
+            let randomDelay = Math.random() * 5; // start delay seconds
+            let randomSize = 60 + Math.random() * 60; // 60px to 120px
+            balloon.style.left = randomLeft + "%";
+            balloon.style.animationDelay = randomDelay + "s";
+            balloon.style.width = randomSize + "px";
+        }
+        moveBalloon();
+        setInterval(moveBalloon, 8000); // reposition after each cycle
+    });
+}
+
+</script>
+
+
+</body>
+</html>
