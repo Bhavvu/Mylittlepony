@@ -65,19 +65,16 @@
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
         .floating-balloon {
-    position: fixed; /* stays relative to screen */
-    bottom: -150px;  /* start below screen */
-    width: 100px;
-    animation: floatUp 8s linear infinite;
-    z-index: 10; /* above background */
+    position: absolute;
+    bottom: -150px;
+    animation: floatUp linear infinite;
 }
 
-    @keyframes floatUp {
-    0%   { transform: translateY(0) scale(1); opacity: 1; }
-    80%  { opacity: 1; }
-    100% { transform: translateY(-120vh) scale(1.2); opacity: 0; }
-    }
-
+/* Animation for floating balloons */
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-120vh); opacity: 0; }
+}
        @keyframes fadeIn {
             from {opacity: 0;}
             to {opacity: 1;}
@@ -113,11 +110,7 @@
          <img src="shark.jpeg" alt="Extra Pic 4" class="extra-pic">
          <img src="flutter.jpeg" alt="Extra Pic 5" class="extra-pic">
     </div>
-    <div>
-        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4960.png" class="floating-balloon" id="balloon1">
-        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4964.png" class="floating-balloon" id="balloon2">
-        <img src="https://pngimg.com/uploads/balloon/balloon_PNG4963.png" class="floating-balloon" id="balloon3">
-    </div>
+   
     <audio id="WhatsApp Audio 2025-08-16 at 11.31.41 PM.mp3" autoplay loop></audio>
 </div>
 
@@ -163,22 +156,7 @@ function launchConfetti() {
         }
     }());
 }
-function startBalloonAnimation() {
-    const balloons = ["balloon1", "balloon2", "balloon3"];
-    balloons.forEach((id) => {
-        let balloon = document.getElementById(id);
-        function moveBalloon() {
-            let randomLeft = Math.random() * 80; // horizontal position %
-            let randomDelay = Math.random() * 5; // start delay seconds
-            let randomSize = 60 + Math.random() * 60; // 60px to 120px
-            balloon.style.left = randomLeft + "%";
-            balloon.style.animationDelay = randomDelay + "s";
-            balloon.style.width = randomSize + "px";
-        }
-        moveBalloon();
-        setInterval(moveBalloon, 8000); // reposition after each cycle
-    });
-}
+
     
 // 🎈 Balloon generator with 18 unique balloons
 function createBalloons() {
@@ -235,6 +213,7 @@ window.onload = createBalloons;
 
 </body>
 </html>
+
 
 
 
