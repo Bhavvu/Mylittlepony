@@ -118,7 +118,7 @@
 function showBirthday() {
     document.getElementById("welcomePage").style.display = "none";
     document.getElementById("birthdayPage").classList.remove("hidden");
-    document.getElementById("birthdayMusic").play();
+    document.getElementById("WhatsApp Audio 2025-08-16 at 11.31.41 PM.mp3").play();
 }
 </script>
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -130,26 +130,16 @@ function showBirthday() {
 
     // Confetti blast when page loads
     launchConfetti();
-    startBalloonAnimation();
+    createBalloons();
 }
 
 function launchConfetti() {
-    var duration = 5 * 1000; // 5 seconds
+    var duration = 5 * 1000;
     var end = Date.now() + duration;
 
     (function frame() {
-        confetti({
-            particleCount: 7,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0 }
-        });
-        confetti({
-            particleCount: 7,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1 }
-        });
+        confetti({ particleCount: 7, angle: 60, spread: 55, origin: { x: 0 } });
+        confetti({ particleCount: 7, angle: 120, spread: 55, origin: { x: 1 } });
 
         if (Date.now() < end) {
             requestAnimationFrame(frame);
@@ -213,6 +203,7 @@ window.onload = createBalloons;
 
 </body>
 </html>
+
 
 
 
