@@ -118,7 +118,7 @@
         <img src="https://pngimg.com/uploads/balloon/balloon_PNG4964.png" class="floating-balloon" id="balloon2">
         <img src="https://pngimg.com/uploads/balloon/balloon_PNG4963.png" class="floating-balloon" id="balloon3">
     </div>
-    <audio id="birthdayMusic" src="happy-birthday-upbeat-birthday-music-361856.mp3" autoplay loop></audio>
+    <audio id="WhatsApp Audio 2025-08-16 at 11.31.41 PM.mp3" autoplay loop></audio>
 </div>
 
 <script>
@@ -179,11 +179,62 @@ function startBalloonAnimation() {
         setInterval(moveBalloon, 8000); // reposition after each cycle
     });
 }
+    
+// 🎈 Balloon generator with 18 unique balloons
+function createBalloons() {
+    const container = document.getElementById("balloon-container");
+    
+    const balloonImages = [
+        "https://pngimg.com/uploads/balloon/balloon_PNG4951.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4952.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4953.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4954.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4955.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4956.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4957.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4958.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4959.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4960.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4961.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4962.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4963.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4964.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4965.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4966.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4967.png",
+        "https://pngimg.com/uploads/balloon/balloon_PNG4968.png"
+    ];
+
+    balloonImages.forEach((src, i) => {
+        const balloon = document.createElement("img");
+        balloon.src = src;
+        balloon.classList.add("floating-balloon");
+
+        // random horizontal position
+        balloon.style.left = Math.random() * 90 + "vw";
+
+        // random size
+        balloon.style.width = (50 + Math.random() * 40) + "px";
+
+        // random floating duration
+        balloon.style.animationDuration = (6 + Math.random() * 6) + "s";
+
+        // small delay so they don't all rise at once
+        balloon.style.animationDelay = (Math.random() * 5) + "s";
+
+        container.appendChild(balloon);
+    });
+}
+
+// Call function when page loads
+window.onload = createBalloons;
+
 
 </script>
 
 
 </body>
 </html>
+
 
 
