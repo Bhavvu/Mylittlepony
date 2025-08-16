@@ -113,7 +113,8 @@
     </div>
     <div id="balloon-container"></div>
    
-    <audio id="mlpp.mp3" autoplay loop></audio>
+    <audio id="birthdayMusic" loop>
+  <source src="mlpp.mp3" type="audio/mpeg"></audio>
 </div>
 
 
@@ -122,7 +123,7 @@
 function showBirthday() {
     document.getElementById("welcomePage").style.display = "none";
     document.getElementById("birthdayPage").classList.remove("hidden");
-     document.getElementById("mlpp.mp3").play();
+     document.getElementById("birthdayMusic").play();
     // Confetti blast when page loads
     launchConfetti();
     createBalloons();
@@ -189,6 +190,7 @@ function createBalloons() {
 
 </body>
 </html>
+
 
 
 
