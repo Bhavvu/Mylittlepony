@@ -110,6 +110,7 @@
          <img src="shark.jpeg" alt="Extra Pic 4" class="extra-pic">
          <img src="flutter.jpeg" alt="Extra Pic 5" class="extra-pic">
     </div>
+    <div id="balloon-container"></div>
    
     <audio id="WhatsApp Audio 2025-08-16 at 11.31.41 PM.mp3" autoplay loop></audio>
 </div>
@@ -151,7 +152,6 @@ function launchConfetti() {
 // 🎈 Balloon generator with 18 unique balloons
 function createBalloons() {
     const container = document.getElementById("balloon-container");
-    
     const balloonImages = [
         "https://pngimg.com/uploads/balloon/balloon_PNG4951.png",
         "https://pngimg.com/uploads/balloon/balloon_PNG4952.png",
@@ -173,29 +173,21 @@ function createBalloons() {
         "https://pngimg.com/uploads/balloon/balloon_PNG4968.png"
     ];
 
-    balloonImages.forEach((src, i) => {
+    balloonImages.forEach((src) => {
         const balloon = document.createElement("img");
         balloon.src = src;
         balloon.classList.add("floating-balloon");
 
-        // random horizontal position
         balloon.style.left = Math.random() * 90 + "vw";
-
-        // random size
         balloon.style.width = (50 + Math.random() * 40) + "px";
-
-        // random floating duration
         balloon.style.animationDuration = (6 + Math.random() * 6) + "s";
-
-        // small delay so they don't all rise at once
         balloon.style.animationDelay = (Math.random() * 5) + "s";
 
         container.appendChild(balloon);
     });
 }
 
-// Call function when page loads
-window.onload = createBalloons;
+// Call function when page load
 
 
 </script>
@@ -203,6 +195,7 @@ window.onload = createBalloons;
 
 </body>
 </html>
+
 
 
 
